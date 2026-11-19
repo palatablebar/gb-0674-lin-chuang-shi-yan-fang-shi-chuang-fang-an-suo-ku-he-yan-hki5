@@ -208,5 +208,31 @@
     "g/L": "100",
     "毫克/分升": "1"
   },
-  "retest_hours": 72
+  "retest_hours": 72,
+  "waivers": [
+    {
+      "waiver_id": "CW-2026-001",
+      "scope": "VISIT",
+      "subject": "00001",
+      "visit": "V1",
+      "approved_at": "2026-10-10T09:00:00+08:00",
+      "reason": "中心设备校准导致窗外访视，事先审批"
+    },
+    {
+      "waiver_id": "CW-2026-002",
+      "scope": "SUBJECT",
+      "subject": "00002",
+      "visit": null,
+      "approved_at": "2026-10-12T09:00:00+08:00",
+      "reason": "仅覆盖受试者本人安排，未指定访视"
+    },
+    {
+      "waiver_id": "CW-2026-003",
+      "scope": "VISIT",
+      "subject": "00003",
+      "visit": "V2",
+      "approved_at": "2026-10-20T09:00:00+08:00",
+      "reason": "访视后补审批，授权时点晚于访视"
+    }
+  ]
 }

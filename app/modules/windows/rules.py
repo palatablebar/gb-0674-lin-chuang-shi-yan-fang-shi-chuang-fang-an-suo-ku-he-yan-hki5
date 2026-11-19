@@ -11,3 +11,8 @@ def apply(state):
     state['windows']=[calculate(r,state['context']) for r in state['records']]
     primary=[r for r in state['windows'] if r['kind']=='PRIMARY']
     state['views']['windows']={'title':'访视窗口','rows':state['windows'],'metrics':{'首次访视':len(primary),'窗内':sum(r['code']=='IN_WINDOW' for r in primary),'窗外':sum(r['code']!='IN_WINDOW' for r in primary)}}
+
+def attach_decisions(state):
+    # 访视页复用偏离模块产出的统一结论，保证跨页同一裁决。
+    state['views']['windows']['decision_rows']=state.get('visit_decisions',[])
+    state['views']['windows']['waiver_rows']=state.get('waiver_reviews',[])

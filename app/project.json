@@ -62,6 +62,19 @@
     "deviations": "偏离",
     "retest_issues": "复检问题",
     "blocked": "阻断项",
-    "status": "状态"
+    "status": "状态",
+    "record_id": "访视记录",
+    "window_code": "窗口判定",
+    "deviation_code": "偏离原因码",
+    "waiver_id": "豁免编号",
+    "decision": "裁决结论",
+    "reason_code": "裁决原因码",
+    "reason": "锁库原因",
+    "blocks_lock": "是否阻断锁库",
+    "waiver_granted": "豁免放行",
+    "blocking_deviations": "仍阻断偏离",
+    "scope": "豁免范围",
+    "approved_at": "审批时刻",
+    "detail": "原因"
   }
 }

@@ -20,6 +20,9 @@ def evaluate(payload=None, until=7, snapshot=None):
     for index,key in enumerate(MODULES,1):
         if index>until: break
         import_module(f'app.modules.{key}.rules').apply(state)
+    # 偏离/豁免裁决产出统一结论后，回填访视页视图，使访视与偏离共用同一结论。
+    if until>=4:
+        import_module('app.modules.windows.rules').attach_decisions(state)
     state['input_snapshot']={'bytes_b64':base64.b64encode(raw).decode(),'context':deepcopy(context)}
     state.pop('raw_bytes',None)
     state['manifest']=make_manifest(digest(raw,context),dataset,time.perf_counter()-start)

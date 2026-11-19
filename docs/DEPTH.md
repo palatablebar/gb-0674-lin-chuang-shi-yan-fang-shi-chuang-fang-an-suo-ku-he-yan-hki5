@@ -29,6 +29,11 @@
 | TRAP-15 | 检验单位换算 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/protocol/rules.py` | `tests/test_protocol.py::test_unit_conversion_real` |
 | TRAP-23 | 访视窗末端 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_half_open_end` |
 | TRAP-11 | UTC日历归一 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_utc_day_equivalence` |
+| TRAP-31 | 豁免只覆盖受试者 | 全放行洗掉未授权偏离 | 受试者级豁免不授权具体窗外偏离 | `app/modules/deviation/rules.py` | `tests/test_waiver.py::test_subject_only_scope_does_not_release` |
+| TRAP-32 | 审批晚于访视 | 追溯授权把事后补批当例外 | 审批时刻不晚于访视才有效 | `app/modules/deviation/rules.py` | `tests/test_waiver.py::test_approval_later_than_visit_does_not_release` |
+| TRAP-33 | 同一豁免重试 | 重复登记新增放行 | 按豁免编号去重，重试不新增放行 | `app/modules/deviation/rules.py` | `tests/test_waiver.py::test_duplicate_waiver_retry_adds_no_release` |
+| TRAP-34 | 豁免洗白偏离 | 放行后偏离消失 | 偏离留痕，仅 blocks_lock 改判，跨模块共用统一裁决 | `app/modules/deviation/rules.py` `app/modules/locking/rules.py` | `tests/test_waiver.py::test_granted_deviation_still_recorded_not_washed` |
+| TRAP-35 | 重算失败覆盖旧结论 | 失败批次替换已锁结论 | 重算在持久化前失败，保留旧版锁库结论 | `app/engine.py` `app/store.py` | `tests/test_waiver.py::test_recompute_failure_keeps_stored_conclusion` |
 
 ## 对账规则
 
